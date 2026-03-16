@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML/CSS 網頁繪圖範例</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* 背景顏色以便看清形狀 */
+        }
+
+        /* 形狀容器，用於定位 */
+        .shape-container {
+            position: relative;
+            width: 300px; /* 容器寬度 */
+            height: 300px; /* 容器高度 */
+        }
+
+        /* 藍色矩形樣式 */
+        .rectangle {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: blue; /* 藍色填充 */
+            border: 5px solid black; /* 黑色實心外框 */
+            z-index: 1; /* 較低的圖層，確保在圓形下方 */
+        }
+
+        /* 黃色圓形樣式 */
+        .circle {
+            position: absolute;
+            top: 80px;
+            left: 150px; /* 調整向右移動以與矩形重疊 */
+            width: 150px;
+            height: 150px;
+            background-color: yellow; /* 黃色填充 */
+            border: 5px solid red; /* 紅色實心外框 */
+            border-radius: 50%; /* 關鍵：使正方形變為圓形 */
+            z-index: 2; /* 較高的圖層，確保在矩形上方 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-container">
+        <div class="rectangle"></div>
+        <div class="circle"></div>
+    </div>
+
+</body>
+</html>
