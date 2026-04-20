@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table and Fixed Div Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 50px;
+        }
+
+        /* 外層白框容器 */
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-height: 300px;
+            position: relative;
+        }
+
+        /* 表格樣式 */
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        /* 表頭灰色背景與白字 */
+        th {
+            background-color: #7d7d7d;
+            color: white;
+        }
+
+        /* 奇數列黃色背景 */
+        tr:nth-child(odd) td {
+            background-color: #ffff00;
+        }
+
+        /* 偶數列白色背景 */
+        tr:nth-child(even) td {
+            background-color: #ffffff;
+        }
+
+        /* 固定位置的 Div */
+        .fixed-div {
+            position: fixed;
+            top: 60px;
+            right: 100px;
+            width: 150px;
+            height: 200px;
+            border: 3px solid #76b900; /* 綠色邊框 */
+            background-color: white;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="fixed-div">
+            This div element has position: fixed;
+        </div>
+    </div>
+
+</body>
+</html>
