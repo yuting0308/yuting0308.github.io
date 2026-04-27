@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer-Engineer Collaboration Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        /* 預覽容器 (依照標註寬度 496px + padding) */
+        .preview-container {
+            width: 496px;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        /* Header 區域 */
+        .header {
+            height: 35px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* 設計稿指定的按鈕樣式 */
+        .info-btn {
+            height: 22px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 1px solid #2f2f2f;
+            color: #2f2f2f;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            padding: 0 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* 圖片區域 */
+        .image-box {
+            width: 450px;
+            height: 240px;
+            margin: 20px auto;
+            background-color: #ffe8d1; /* 模擬設計稿中的預覽背景色 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 詳細資訊區塊 (預設隱藏) */
+        .detail-info {
+            display: none;
+            padding: 0 20px;
+            margin-top: 10px; /* 依照標註 Min 10 */
+        }
+
+        .detail-row {
+            height: 22px;
+            background-color: #99ff99; /* 模擬設計稿中的綠色背景 */
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: #2f2f2f;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+
+        /* 顯示狀態 */
+        .detail-info.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="preview-container">
+    <div class="header">
+        <button class="info-btn" id="toggleBtn">查看資訊</button>
+    </div>
+
+    <div class="image-box">
+        <img src="https://via.placeholder.com/450x240/E8D1B3/707070?text=Default+450x240" alt="Preview">
+    </div>
+
+    <div class="detail-info" id="infoPanel">
+        <div class="detail-row">修改日期：2017/10/12</div>
+        <div class="detail-row">類別：JPG</div>
+        <div class="detail-row">大小：466.97KB</div>
+        <div class="detail-row">路徑：\\designcenter.qnap.com.tw\sample</div>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('toggleBtn');
+    const info = document.getElementById('infoPanel');
+
+    btn.addEventListener('click', () => {
+        // 切換顯示/隱藏
+        if (info.classList.contains('active')) {
+            info.classList.remove('active');
+            btn.textContent = '查看資訊';
+        } else {
+            info.classList.add('active');
+            btn.textContent = '收起資訊';
+        }
+    });
+</script>
+
+</body>
+</html>
