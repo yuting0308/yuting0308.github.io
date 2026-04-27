@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout Practice</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #74b9ff; /* 模擬圖中的藍色背景 */
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 外層容器 */
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 共同樣式：間距 */
+        .section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .block {
+            border-radius: 4px;
+        }
+
+        /* --- 綠色區域 --- */
+        .header-block {
+            width: 100%;
+            height: 100px;
+            background-color: #badc58;
+            margin-bottom: 10px;
+        }
+
+        /* --- 藍色區域 --- */
+        .content-area {
+            flex-direction: row; /* 預設橫向 (b) */
+        }
+        .content-item {
+            flex: 1;
+            height: 120px;
+            background-color: #4899ad; /* 稍深一點的藍綠色 */
+        }
+
+        /* --- 灰色區域 --- */
+        .footer-area {
+            flex-wrap: wrap; /* 允許換行 */
+        }
+        .footer-item {
+            flex: 1;
+            min-width: calc(25% - 10px); /* 預設 4 欄 (b) */
+            height: 40px;
+            background-color: #ebf0f1;
+        }
+
+        /* 關鍵：RWD 媒體查詢 
+           當寬度小於 480px 時切換到佈局 (a)
+        */
+        @media (max-width: 480px) {
+            /* 藍色區塊變為垂直堆疊 */
+            .content-area {
+                flex-direction: column;
+            }
+            .content-item {
+                height: 40px; 
+            }
+
+            /* 灰色區塊變為 2x2 */
+            .footer-item {
+                min-width: calc(50% - 10px); /* 每列兩欄 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header-block"></div>
+
+        <div class="section content-area">
+            <div class="block content-item"></div>
+            <div class="block content-item"></div>
+            <div class="block content-item"></div>
+        </div>
+
+        <div class="section footer-area">
+            <div class="block footer-item"></div>
+            <div class="block footer-item"></div>
+            <div class="block footer-item"></div>
+            <div class="block footer-item"></div>
+        </div>
+    </div>
+
+</body>
+</html>
