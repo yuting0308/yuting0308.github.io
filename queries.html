@@ -70,19 +70,24 @@
            當寬度小於 580px 時切換到佈局 (a)
         */
         @media (max-width: 580px) {
-            /* 藍色區塊變為垂直堆疊 */
-            .content-area {
-                flex-direction: column;
-            }
-            .content-item {
-                height: 40px; 
-            }
+    /* 藍色區塊變為垂直堆疊 */
+    .content-area {
+        flex-direction: column;
+        height: auto; /* 確保高度隨內容撐開 */
+    }
+    
+    .content-item {
+        width: 100%;  /* 強制寬度佔滿 100% */
+        height: 60px; /* 給予明確高度 */
+        flex: none;   /* 在 column 模式下，關閉彈性比例避免被壓縮 */
+    }
 
-            /* 灰色區塊變為 2x2 */
-            .footer-item {
-                min-width: calc(50% - 10px); /* 每列兩欄 */
-            }
-        }
+    /* 灰色區塊變為 2x2 */
+    .footer-item {
+        flex: none; /* 關閉彈性比例 */
+        width: calc(50% - 5px); /* 手動設定寬度 */
+    }
+}
     </style>
 </head>
 <body>
